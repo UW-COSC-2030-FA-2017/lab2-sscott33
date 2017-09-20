@@ -85,6 +85,29 @@ void List::print(ostream & outfile) const
 }
 
 
+// method to return the size of the list
+int List::getSize() const {
+	// return size 0 if list is empty
+	if (empty())
+		return 0;
+
+	// list not empty, find size
+	int size = 1;
+
+	first_ -> entry_;
+	Node *ptr = first_ -> next_;
+
+	while (ptr != NULL)
+	{
+		ptr->entry_;
+		ptr = ptr->next_;
+		size++;
+	}
+
+	return size;
+}
+
+
 // Iterative version of clone.
 // This version walks down the linked structure making a
 //   new Node for each double in the structure.
@@ -126,5 +149,3 @@ ostream & operator<<(ostream & outfile, const List & list)
 	list.print(outfile);
 	return outfile;
 }
-
-

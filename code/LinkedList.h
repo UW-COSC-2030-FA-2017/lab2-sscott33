@@ -54,6 +54,9 @@ public:
 	//         outfile.
 	void print(ostream & outfile) const;
 
+	// the following method returns the length of the LinkedList
+	int getSize() const;
+
 
 	//*** Mutators ***
 
