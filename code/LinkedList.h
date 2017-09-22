@@ -1,5 +1,7 @@
 // LinkedList.h
 
+// most recently modified by Samuel Scott during the 4th week of September, 2017
+
 // tom bailey   0740  5 oct 2010
 // Declaration of the List class.
 
@@ -54,8 +56,17 @@ public:
 	//         outfile.
 	void print(ostream & outfile) const;
 
+	// the following method returns the length of the LinkedList
+	int getSize() const;
+
+	// sum() gets the sum of all of the contents of the list as a double
+	double getSum() const;
 
 	//*** Mutators ***
+
+	// post: x has been added to the list after the last element
+	//			and may be the first element if the list is empty
+	void insertAsLast(double x);
 
 	// post: x has been added as the first double in this
 	//         List.

@@ -1,5 +1,7 @@
 // LinkedList.cpp
 
+// most recently modified by Samuel Scott during the 4th week of September, 2017
+
 // tom bailey   0745  5 oct 2010
 // Definition of methods for the List class.
 
@@ -85,6 +87,67 @@ void List::print(ostream & outfile) const
 }
 
 
+// method to return the size of the list
+int List::getSize() const {
+	// return size 0 if list is empty
+	if (empty())
+		return 0;
+
+	// list not empty, find size
+	int size = 1;
+
+//	first_ -> entry_;
+	Node *ptr = first_ -> next_;
+
+	while (ptr != NULL)
+	{
+		//ptr->entry_;
+		ptr = ptr->next_;
+		size++;
+	}
+
+	delete ptr;
+	return size;
+}
+
+
+double List::getSum() const {
+	if (empty()) return 0;
+
+	double sum = first_->entry_;
+	Node *ptr = first_->next_;
+
+	while (ptr != NULL) {
+		sum +=  ptr->entry_;
+		ptr = ptr->next_;
+	}
+
+	delete ptr;
+	return sum;
+}
+
+
+void List::insertAsLast(double x) {
+	if (empty()) {
+		first_ = new Node(x, first_);
+		return;
+	}
+
+	Node *ptr = first_ -> next_;
+	Node *prevNode;
+
+	while (ptr != NULL)
+	{
+		prevNode = ptr;
+		ptr = ptr->next_;
+	}
+
+	Node *last_ = new Node(x, NULL);
+	prevNode->next_ = last_;
+
+}
+
+
 // Iterative version of clone.
 // This version walks down the linked structure making a
 //   new Node for each double in the structure.
@@ -126,5 +189,3 @@ ostream & operator<<(ostream & outfile, const List & list)
 	list.print(outfile);
 	return outfile;
 }
-
-
