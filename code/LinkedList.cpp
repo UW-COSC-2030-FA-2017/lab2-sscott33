@@ -1,5 +1,7 @@
 // LinkedList.cpp
 
+// most recently modified by Samuel Scott during the 4th week of September, 2017
+
 // tom bailey   0745  5 oct 2010
 // Definition of methods for the List class.
 
@@ -123,6 +125,28 @@ double List::getSum() const {
 	delete ptr;
 	return sum;
 }
+
+
+void List::insertAsLast(double x) {
+	if (empty()) {
+		first_ = new Node(x, first_);
+		return;
+	}
+
+	Node *ptr = first_ -> next_;
+	Node *prevNode;
+
+	while (ptr != NULL)
+	{
+		prevNode = ptr;
+		ptr = ptr->next_;
+	}
+
+	Node *last_ = new Node(x, NULL);
+	prevNode->next_ = last_;
+
+}
+
 
 // Iterative version of clone.
 // This version walks down the linked structure making a
