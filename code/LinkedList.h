@@ -57,6 +57,8 @@ public:
 	// the following method returns the length of the LinkedList
 	int getSize() const;
 
+	// sum() gets the sum of all of the contents of the list as a double
+	double getSum() const;
 
 	//*** Mutators ***
 

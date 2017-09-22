@@ -94,19 +94,35 @@ int List::getSize() const {
 	// list not empty, find size
 	int size = 1;
 
-	first_ -> entry_;
+//	first_ -> entry_;
 	Node *ptr = first_ -> next_;
 
 	while (ptr != NULL)
 	{
-		ptr->entry_;
+		//ptr->entry_;
 		ptr = ptr->next_;
 		size++;
 	}
 
+	delete ptr;
 	return size;
 }
 
+
+double List::getSum() const {
+	if (empty()) return 0;
+
+	double sum = first_->entry_;
+	Node *ptr = first_->next_;
+
+	while (ptr != NULL) {
+		sum +=  ptr->entry_;
+		ptr = ptr->next_;
+	}
+
+	delete ptr;
+	return sum;
+}
 
 // Iterative version of clone.
 // This version walks down the linked structure making a
